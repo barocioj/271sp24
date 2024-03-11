@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <complex.h>
+#include <math.h>
  
 // rip from https://rosettacode.org/wiki/Bitmap/Write_a_PPM_file#C
 // try "convert x.ppm x.png" and follow the install instructions to get a png
