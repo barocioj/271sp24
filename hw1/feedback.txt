@@ -1,0 +1,36 @@
+Okay, some put a q randomly somewhere in your code, and also you had a weird type issue in base that led to a seg fault until I patched it.
+
+If I didn't know better, I would wonder if this code wasn't made in a standard linux environment and then submitted via the commandline.
+
+Other than the logistics, the code is all self-apparently excellent. The equalizer is well doen and produces images of great quality.
+
+Generally equalization would merit extra credit, but I am somewhat unwilling to award extra credit on code that both didn't compile, and when compiled, seg faulted. I hope you accept my effusive praise as an alternative.
+
+100/100
+
+Really, really, fantastic work.
+
+13c13
+< 	unsigned char ***base = (unsigned char ***)malloc(size * sizeof(unsigned char **)); // those are... different types?
+---
+> 	unsigned char **base = (unsigned char ***)malloc(size * sizeof(unsigned char **));
+16c16
+< 		base[i] = (unsigned char **)malloc(size * sizeof(unsigned char *));
+---
+> 		base[i] = (unsigned char **)malloc(size * sizeof(unsqigned char *));
+49c49
+<     return ((double)x * 4.0 / (double)size - 2.0) + ((double)y * 4.0 / (double)size - 2.0) * I; // you should also cast size 
+---
+>     return ((double)x * 4.0 / size - 2.0) + ((double)y * 4.0 / size - 2.0) * I;
+81c81
+<         if (base[x][y][color] > 255) // this is false by construction
+---
+>         if (base[x][y][color] > 255)
+123c123
+<     int cdf[3][256] = {0}; // this doesn't necessarily zero out to entire array, only the first element
+---
+>     int cdf[3][256] = {0};
+184c184
+< 	make_brot(800,20);
+---
+> 	make_brot(4000,50);
